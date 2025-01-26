@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:fixiconn/SCREENS/pageview.dart';
 
 class OnboardingScreen extends StatefulWidget {
-  OnboardingScreen({
+  const OnboardingScreen({
     super.key,
   });
 

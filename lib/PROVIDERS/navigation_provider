@@ -1,0 +1,12 @@
+import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+
+class NavigationProvider extends ChangeNotifier {
+  String _selectedItem = 'LIVE';
+  String get selectedItem => _selectedItem;
+
+  void selectItem(String item) {
+    _selectedItem = item;
+    notifyListeners();
+  }
+}

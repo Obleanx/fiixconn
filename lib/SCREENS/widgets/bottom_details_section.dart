@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:fixiconn/PROVIDERS/home_provider.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class BottomDetailsSection extends StatelessWidget {
   const BottomDetailsSection({super.key});
@@ -16,17 +17,16 @@ class BottomDetailsSection extends StatelessWidget {
         children: [
           Row(
             children: [
-              const Icon(Icons.face_outlined, color: Colors.white),
-              const SizedBox(width: 10),
               Container(
-                padding:
-                    const EdgeInsets.symmetric(horizontal: 10, vertical: 5),
+                padding: const EdgeInsets.symmetric(horizontal: 3, vertical: 5),
                 color: Colors.black,
                 child: const Row(
                   children: [
-                    Text('Shop', style: TextStyle(color: Colors.white)),
-                    SizedBox(width: 10),
-                    Icon(Icons.arrow_drop_down, color: Colors.white),
+                    Icon(Icons.store_outlined, color: Colors.white),
+                    SizedBox(width: 5),
+                    Text('Shop .4', style: TextStyle(color: Colors.white)),
+                    //SizedBox(width: 10),
+                    Icon(Icons.expand_more, color: Colors.white),
                   ],
                 ),
               ),
@@ -39,7 +39,11 @@ class BottomDetailsSection extends StatelessWidget {
               homeProvider.isTextExpanded
                   ? 'This happens to be a great match! Full details about the match and everything that makes it interesting.'
                   : 'This happens to be a great match!...see more',
-              style: const TextStyle(color: Colors.white),
+              style: const TextStyle(
+                color: Colors.white,
+                fontSize: 11,
+                fontWeight: FontWeight.bold,
+              ),
             ),
           ),
           const SizedBox(height: 10),
@@ -49,19 +53,24 @@ class BottomDetailsSection extends StatelessWidget {
               children: [
                 Container(
                   padding:
-                      const EdgeInsets.symmetric(horizontal: 10, vertical: 5),
+                      const EdgeInsets.symmetric(horizontal: 3, vertical: 2),
                   decoration: BoxDecoration(
-                    color: Colors.grey.withOpacity(0.7),
+                    color:
+                        const Color.fromARGB(255, 77, 76, 76).withOpacity(0.7),
                     borderRadius: BorderRadius.circular(20),
                   ),
                   child: Row(
                     children: [
-                      const Icon(Icons.music_note, color: Colors.white),
+                      FaIcon(FontAwesomeIcons.music,
+                          color: Colors.white, size: 20),
                       Text(
                         homeProvider.isMusicInfoExpanded
-                            ? 'Feature Presentation - Awesome Band'
-                            : 'Fe...',
-                        style: const TextStyle(color: Colors.white),
+                            ? 'Falz.How many by Falz'
+                            : 'Falz.How many  [Fe...',
+                        style: const TextStyle(
+                          color: Colors.white,
+                          fontSize: 10,
+                        ),
                       ),
                     ],
                   ),
@@ -69,31 +78,38 @@ class BottomDetailsSection extends StatelessWidget {
                 const SizedBox(width: 10),
                 Container(
                   padding:
-                      const EdgeInsets.symmetric(horizontal: 10, vertical: 5),
+                      const EdgeInsets.symmetric(horizontal: 3, vertical: 2),
                   decoration: BoxDecoration(
-                    color: Colors.grey.withOpacity(0.7),
+                    color:
+                        const Color.fromARGB(255, 77, 76, 76).withOpacity(0.7),
                     borderRadius: BorderRadius.circular(20),
                   ),
-                  child: const Row(
+                  child: Row(
                     children: [
-                      Icon(Icons.science, color: Colors.white),
-                      Text('Effect Name',
-                          style: TextStyle(color: Colors.white)),
+                      FaIcon(FontAwesomeIcons.magic, color: Colors.white),
+                      const Text(
+                        'Effect Name',
+                        style: TextStyle(
+                          color: Colors.white,
+                          fontSize: 10,
+                        ),
+                      ),
                     ],
                   ),
                 ),
-                const Spacer(),
+                // const Spacer(),
+                const SizedBox(width: 20),
                 Container(
                   decoration: BoxDecoration(
                     border: Border.all(color: Colors.white),
-                    borderRadius: BorderRadius.circular(5),
+                    borderRadius: BorderRadius.circular(8),
                   ),
                   child: ClipRRect(
-                    borderRadius: BorderRadius.circular(5),
+                    borderRadius: BorderRadius.circular(8),
                     child: Image.asset(
-                      'assets/images/artist.jpg', // Replace with artist image
-                      width: 50,
-                      height: 50,
+                      'lib/images/game1.jpeg', // Replace with artist image
+                      width: 35,
+                      height: 35,
                       fit: BoxFit.cover,
                     ),
                   ),
