@@ -1,5 +1,5 @@
-import 'package:fixiconn/SCREENS/mini_apps.dart';
 import 'package:flutter/material.dart';
+import 'package:fixiconn/SCREENS/mini_apps.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 // ignore_for_file: deprecated_member_use
 

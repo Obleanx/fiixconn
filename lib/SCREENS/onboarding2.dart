@@ -10,7 +10,7 @@ class SecondOnboardingScreen extends StatelessWidget {
     return Container(
       decoration: const BoxDecoration(
         image: DecorationImage(
-          image: AssetImage('lib/images/galaxy.jpeg'),
+          image: AssetImage('lib/images/bck.webp'),
           fit: BoxFit.cover,
         ),
       ),
