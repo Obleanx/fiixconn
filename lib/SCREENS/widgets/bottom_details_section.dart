@@ -32,7 +32,15 @@ class BottomDetailsSection extends StatelessWidget {
               ),
             ],
           ),
-          const SizedBox(height: 10),
+          const SizedBox(height: 5),
+          const Text(
+            "Username",
+            style: TextStyle(
+              color: Colors.white,
+              fontWeight: FontWeight.bold,
+            ),
+          ),
+          const SizedBox(height: 4),
           GestureDetector(
             onTap: () => homeProvider.toggleTextExpansion(),
             child: Text(
@@ -61,8 +69,11 @@ class BottomDetailsSection extends StatelessWidget {
                   ),
                   child: Row(
                     children: [
-                      FaIcon(FontAwesomeIcons.music,
-                          color: Colors.white, size: 20),
+                      const Padding(
+                        padding: EdgeInsets.all(6.0),
+                        child: FaIcon(FontAwesomeIcons.music,
+                            color: Colors.white, size: 12),
+                      ),
                       Text(
                         homeProvider.isMusicInfoExpanded
                             ? 'Falz.How many by Falz'
@@ -78,40 +89,33 @@ class BottomDetailsSection extends StatelessWidget {
                 const SizedBox(width: 10),
                 Container(
                   padding:
-                      const EdgeInsets.symmetric(horizontal: 3, vertical: 2),
+                      const EdgeInsets.symmetric(horizontal: 3, vertical: 1),
                   decoration: BoxDecoration(
                     color:
                         const Color.fromARGB(255, 77, 76, 76).withOpacity(0.7),
                     borderRadius: BorderRadius.circular(20),
                   ),
-                  child: Row(
+                  child: const Row(
                     children: [
-                      FaIcon(FontAwesomeIcons.magic, color: Colors.white),
-                      const Text(
-                        'Effect Name',
-                        style: TextStyle(
+                      Padding(
+                        padding: EdgeInsets.all(5.0),
+                        child: FaIcon(
+                          FontAwesomeIcons.magic,
                           color: Colors.white,
-                          fontSize: 10,
+                          size: 12,
+                        ),
+                      ),
+                      Padding(
+                        padding: EdgeInsets.all(6.0),
+                        child: Text(
+                          'Effect Name',
+                          style: TextStyle(
+                            color: Colors.white,
+                            fontSize: 10,
+                          ),
                         ),
                       ),
                     ],
-                  ),
-                ),
-                // const Spacer(),
-                const SizedBox(width: 20),
-                Container(
-                  decoration: BoxDecoration(
-                    border: Border.all(color: Colors.white),
-                    borderRadius: BorderRadius.circular(8),
-                  ),
-                  child: ClipRRect(
-                    borderRadius: BorderRadius.circular(8),
-                    child: Image.asset(
-                      'lib/images/game1.jpeg', // Replace with artist image
-                      width: 35,
-                      height: 35,
-                      fit: BoxFit.cover,
-                    ),
                   ),
                 ),
               ],
