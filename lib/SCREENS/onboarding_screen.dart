@@ -1,16 +1,23 @@
 import 'package:flutter/material.dart';
 import 'package:fixiconn/SCREENS/pageview.dart';
 
-class OnboardingScreen extends StatelessWidget {
-  const OnboardingScreen({super.key});
+class OnboardingScreen extends StatefulWidget {
+  OnboardingScreen({
+    super.key,
+  });
 
+  @override
+  State<OnboardingScreen> createState() => _OnboardingScreenState();
+}
+
+class _OnboardingScreenState extends State<OnboardingScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: GestureDetector(
         onTap: () {
           Navigator.of(context).pushReplacement(
-            MaterialPageRoute(builder: (_) => const OnboardingPages()),
+            MaterialPageRoute(builder: (_) => OnboardingPages()),
           );
         },
         child: Container(

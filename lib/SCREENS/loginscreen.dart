@@ -1,31 +1,62 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import 'package:google_fonts/google_fonts.dart';
+import 'package:fixiconn/SCREENS/homepage.dart';
+import 'package:fixiconn/PROVIDERS/home_provider.dart';
 
 class LoginOnboardingScreen extends StatefulWidget {
   final PageController pageController;
 
-  const LoginOnboardingScreen({Key? key, required this.pageController})
-      : super(key: key);
+  const LoginOnboardingScreen({super.key, required this.pageController});
 
   @override
+  // ignore: library_private_types_in_public_api
   _LoginOnboardingScreenState createState() => _LoginOnboardingScreenState();
 }
 
 class _LoginOnboardingScreenState extends State<LoginOnboardingScreen> {
   bool _obscurePassword = true;
+  void _navigateToHome() {
+    Navigator.push(
+      context,
+      MaterialPageRoute(
+          builder: (context) => ChangeNotifierProvider(
+                create: (_) => HomeProvider(),
+                child: const HomePage(),
+              )),
+    );
+  }
 
   @override
   Widget build(BuildContext context) {
+    final textTheme = GoogleFonts.montserratTextTheme(
+      Theme.of(context).textTheme,
+    );
     return Scaffold(
       body: Padding(
         padding: const EdgeInsets.all(20.0),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
+            const SizedBox(height: 40),
+
             // Back Navigation
-            CircleAvatar(
-              backgroundColor: Colors.blue.shade50,
+            Container(
+              width: 24, // Set the diameter of the circle
+              height: 23, // Set the diameter of the circle
+              decoration: BoxDecoration(
+                shape: BoxShape.circle,
+                border: Border.all(
+                    color: const Color.fromARGB(131, 0, 0, 0), width: 1.5),
+              ),
               child: IconButton(
-                icon: const Icon(Icons.arrow_back, color: Colors.blue),
+                padding:
+                    EdgeInsets.zero, // Remove extra padding around the icon
+                iconSize: 16,
+                icon: const Icon(
+                  Icons.arrow_back,
+                  color: Color.fromARGB(131, 0, 0, 0),
+                ),
                 onPressed: () => widget.pageController.previousPage(
                   duration: const Duration(milliseconds: 300),
                   curve: Curves.easeInOut,
@@ -33,19 +64,22 @@ class _LoginOnboardingScreenState extends State<LoginOnboardingScreen> {
               ),
             ),
 
+            const SizedBox(height: 60),
+
             // FIIXCONN Header
-            const Center(
+            Center(
               child: Column(
                 children: [
                   Icon(
                     Icons.code,
                     size: 50,
-                    color: Colors.blue,
+                    color: Colors.blue[900],
                   ),
+                  const SizedBox(height: 10),
                   Text(
                     'FIIXCONN',
                     style: TextStyle(
-                      color: Colors.blue,
+                      color: Colors.blue[900],
                       fontSize: 24,
                       fontWeight: FontWeight.bold,
                     ),
@@ -58,22 +92,32 @@ class _LoginOnboardingScreenState extends State<LoginOnboardingScreen> {
 
             // Username Field
             RichText(
-              text: const TextSpan(
+              text: TextSpan(
                 children: [
                   TextSpan(
                     text: 'Username',
-                    style: TextStyle(color: Colors.black),
+                    style: textTheme.bodyMedium?.copyWith(color: Colors.black),
                   ),
                   TextSpan(
-                    text: ' *',
-                    style: TextStyle(color: Colors.red),
+                    text: '*',
+                    style: textTheme.bodyMedium?.copyWith(color: Colors.red),
                   ),
                 ],
               ),
             ),
-            const TextField(
+            const SizedBox(height: 5),
+            TextField(
               decoration: InputDecoration(
-                border: OutlineInputBorder(),
+                isDense: true,
+                contentPadding: const EdgeInsets.symmetric(
+                  vertical: 12,
+                  horizontal: 10,
+                ),
+                border: OutlineInputBorder(
+                  borderRadius: const BorderRadius.all(Radius.circular(10)),
+                  borderSide: BorderSide(
+                      color: Colors.grey.shade700), // Dark grey border
+                ),
               ),
             ),
 
@@ -81,27 +125,39 @@ class _LoginOnboardingScreenState extends State<LoginOnboardingScreen> {
 
             // Password Field
             RichText(
-              text: const TextSpan(
+              text: TextSpan(
                 children: [
                   TextSpan(
                     text: 'Password',
-                    style: TextStyle(color: Colors.black),
+                    style: textTheme.bodyMedium?.copyWith(color: Colors.black),
                   ),
                   TextSpan(
-                    text: ' *',
-                    style: TextStyle(color: Colors.red),
+                    text: '*',
+                    style: textTheme.bodyMedium?.copyWith(color: Colors.red),
                   ),
                 ],
               ),
             ),
+            const SizedBox(height: 5),
+
             TextField(
               obscureText: _obscurePassword,
               decoration: InputDecoration(
-                border: const OutlineInputBorder(),
+                isDense: true,
+                contentPadding: const EdgeInsets.symmetric(
+                  vertical: 12,
+                  horizontal: 10,
+                ),
+                border: OutlineInputBorder(
+                  borderRadius: const BorderRadius.all(Radius.circular(10)),
+                  borderSide: BorderSide(
+                      color: Colors.grey.shade700), // Dark grey border
+                ),
                 suffixIcon: IconButton(
-                  icon: Icon(_obscurePassword
-                      ? Icons.visibility_off
-                      : Icons.visibility),
+                  icon: Icon(
+                    _obscurePassword ? Icons.visibility_off : Icons.visibility,
+                    size: 18,
+                  ),
                   onPressed: () {
                     setState(() {
                       _obscurePassword = !_obscurePassword;
@@ -111,18 +167,21 @@ class _LoginOnboardingScreenState extends State<LoginOnboardingScreen> {
               ),
             ),
 
-            const SizedBox(height: 20),
+            const SizedBox(height: 30),
 
             // Login Button
             Center(
               child: ElevatedButton(
                 style: ElevatedButton.styleFrom(
-                  backgroundColor: Colors.blue,
-                  minimumSize: const Size(double.infinity, 50),
+                  elevation: 5,
+                  shape: RoundedRectangleBorder(
+                    borderRadius:
+                        BorderRadius.circular(8), // Slightly curved edges
+                  ),
+                  backgroundColor: Colors.blue[900],
+                  fixedSize: const Size(350, 50), // Button width and height
                 ),
-                onPressed: () {
-                  // Implement login logic
-                },
+                onPressed: _navigateToHome,
                 child: const Text(
                   'Login',
                   style: TextStyle(color: Colors.white),
@@ -138,9 +197,9 @@ class _LoginOnboardingScreenState extends State<LoginOnboardingScreen> {
                 onPressed: () {
                   // Implement forgot password logic
                 },
-                child: const Text(
-                  'Forgot Password?',
-                  style: TextStyle(color: Colors.blue),
+                child: Text(
+                  'Forgotten Password?',
+                  style: TextStyle(color: Colors.blue[900]),
                 ),
               ),
             ),
@@ -153,9 +212,12 @@ class _LoginOnboardingScreenState extends State<LoginOnboardingScreen> {
                 onPressed: () {
                   // Implement create account logic
                 },
-                child: const Text(
-                  'Create New Account',
-                  style: TextStyle(color: Colors.blue),
+                child: Text(
+                  'Create new account',
+                  style: TextStyle(
+                    color: Colors.blue[900],
+                    fontSize: 17,
+                  ),
                 ),
               ),
             ),
