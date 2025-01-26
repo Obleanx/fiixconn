@@ -1,6 +1,19 @@
 import 'package:flutter/material.dart';
-// Provider Class for Home Page
 
 class HomeProvider extends ChangeNotifier {
-  // Add your state management logic here
+  bool _isTextExpanded = false;
+  bool _isMusicInfoExpanded = false;
+
+  bool get isTextExpanded => _isTextExpanded;
+  bool get isMusicInfoExpanded => _isMusicInfoExpanded;
+
+  void toggleTextExpansion() {
+    _isTextExpanded = !_isTextExpanded;
+    notifyListeners();
+  }
+
+  void toggleMusicInfoExpansion() {
+    _isMusicInfoExpanded = !_isMusicInfoExpanded;
+    notifyListeners();
+  }
 }
