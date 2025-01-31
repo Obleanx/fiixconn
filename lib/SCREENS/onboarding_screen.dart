@@ -1,6 +1,6 @@
+import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:fixiconn/SCREENS/pageview.dart';
-import 'dart:async';
 
 class OnboardingScreen extends StatefulWidget {
   const OnboardingScreen({
