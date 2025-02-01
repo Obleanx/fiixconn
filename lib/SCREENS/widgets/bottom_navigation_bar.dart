@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:fixiconn/SCREENS/news_room.dart';
 import 'package:fixiconn/SCREENS/mini_apps.dart';
+import 'package:fixiconn/SCREENS/countries_screen.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 // ignore_for_file: deprecated_member_use
 
@@ -39,13 +41,24 @@ class CustomBottomNavigationBar extends StatelessWidget {
                     ),
                     'Mini Apps'),
               ),
-              _buildNavItem(
-                  const FaIcon(
-                    FontAwesomeIcons.commenting,
-                    color: Colors.grey,
-                    size: 24,
-                  ),
-                  'Messages'),
+              GestureDetector(
+                onTap: () {
+                  // Navigate to new screen
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => const CountriesScreen(),
+                    ),
+                  );
+                },
+                child: _buildNavItem(
+                    const FaIcon(
+                      FontAwesomeIcons.commenting,
+                      color: Colors.grey,
+                      size: 24,
+                    ),
+                    'Messages'),
+              ),
               Container(
                 height: 50,
                 width: 50,
@@ -67,13 +80,24 @@ class CustomBottomNavigationBar extends StatelessWidget {
                   size: 30,
                 ),
               ),
-              _buildNavItem(
-                  const Icon(
-                    Icons.notifications_none_outlined,
-                    color: Colors.grey,
-                    size: 28,
-                  ),
-                  'Notification'),
+              GestureDetector(
+                onTap: () {
+                  // Navigate to new screen
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => const NewsScreen(),
+                    ),
+                  );
+                },
+                child: _buildNavItem(
+                    const Icon(
+                      Icons.notifications_none_outlined,
+                      color: Colors.grey,
+                      size: 28,
+                    ),
+                    'Notification'),
+              ),
               _buildNavItem(
                   const Icon(
                     Icons.person_outlined,

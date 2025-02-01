@@ -1,16 +1,49 @@
-# fixiconn
+# Fixxcon
 
-A new Flutter project.
+## Overview
+Fixxcon is a Flutter-based UI application designed to showcase a news platform with API integration. It provides users with the latest news updates from around the world, as well as an Explorer feature to search and find information on any country. The app utilizes the News API for real-time headlines and an Explorer API for global country data.
 
-## Getting Started
+## Features
+- **Sports News Section**: Fetches top sports headlines from the News API.
+- **General News Section**: Displays real-time news updates from around the world.
+- **Explorer Feature**: Allows users to search for detailed information on any country.
+- **Modern UI**: Card-based layout for a clean and engaging user experience.
+- **Bottom Navigation**: Users can easily navigate through different sections.
+- **Messages & Notifications**: Accessible via the Messages & Notification icon in the bottom navigation bar.
 
-This project is a starting point for a Flutter application.
+## Technology Stack
+- **Flutter**: Framework used to build the app.
+- **Provider**: State management solution implemented in the app.
+- **API Integration**:
+  1. **News API**: Fetches the latest global and sports news.
+  2. **Explorer API**: Enables users to search for information on any country.
 
-A few resources to get you started if this is your first Flutter project:
+## Installation & Setup
+1. Clone the repository:
+   ```sh
+   git clone https://github.com/ObleanX/fixxcon.git
+   ```
+2. Navigate to the project folder:
+   ```sh
+   cd fixxcon
+   ```
+3. Install dependencies:
+   ```sh
+   flutter pub get
+   ```
+4. Run the app:
+   ```sh
+   flutter run
+   ```
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+## Future Enhancements
+- Add user authentication for personalized news feeds.
+- Implement dark mode for better user experience.
+- Enhance search functionality with additional filters.
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+## Contribution
+Feel free to fork this repository, submit issues, or create pull requests to contribute to the project.
+
+## License
+This project is licensed under the MIT License.
+
